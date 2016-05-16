@@ -28,8 +28,9 @@ namespace solaire {
 		virtual void SOLAIRE_INTERFACE_CALL set_seed(const uint64_t) throw() = 0;
 
 		inline double next_d(const double aMin, const double aMax) throw() {
-			const double n = random_normal();
-			return (n * aMin) + (n * aMax);
+			return aMin < 0.f ?
+				(std::abs(aMin) + aMax) * random_normal() - std::abs(aMin) :
+				(aMax - aMin) * random_normal() + aMin;
 		}
 
 		inline double next_d(const double aMax) throw() {
