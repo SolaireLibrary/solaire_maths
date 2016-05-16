@@ -12,6 +12,7 @@
 //See the License for the specific language governing permissions and
 //limitations under the License.
 
+#include <time.h>
 #include "solaire/maths/randomiser.hpp"
 
 class default_randomiser : public solaire::randomiser {
@@ -22,7 +23,7 @@ private:
 	}
 public:
 	default_randomiser() {
-
+		srand(time(0));
 	}
 
 	// inherited from randomiser
