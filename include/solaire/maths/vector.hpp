@@ -120,6 +120,55 @@ namespace solaire {
 			return S;
 		}
 
+		template<class T2 = T, typename ENABLE = typename std::enable_if<std::is_arithmetic<T2>::value || std::is_same<T,T2>::value>::type>
+		vector<bool, S> operator==(const T2 aScalar) const throw() {
+			vector<bool, S> tmp;
+			for(uint32_t i = 0; i < S; ++i) tmp[i] = mElements[i] == aScalar;
+			return tmp;
+		}
+
+		template<class T2 = T, typename ENABLE = typename std::enable_if<std::is_arithmetic<T2>::value || std::is_same<T,T2>::value>::type>
+		vector<bool, S> operator==(const T2 aScalar) const throw() {
+			vector<bool, S> tmp;
+			for(uint32_t i = 0; i < S; ++i) tmp[i] = mElements[i] == aScalar;
+			return tmp;
+		}
+
+		template<class T2 = T, typename ENABLE = typename std::enable_if<std::is_arithmetic<T2>::value || std::is_same<T,T2>::value>::type>
+		vector<bool, S> operator!=(const T2 aScalar) const throw() {
+			vector<bool, S> tmp;
+			for(uint32_t i = 0; i < S; ++i) tmp[i] = mElements[i] != aScalar;
+			return tmp;
+		}
+
+		template<class T2 = T, typename ENABLE = typename std::enable_if<std::is_arithmetic<T2>::value || std::is_same<T,T2>::value>::type>
+		vector<bool, S> operator<(const T2 aScalar) const throw() {
+			vector<bool, S> tmp;
+			for(uint32_t i = 0; i < S; ++i) tmp[i] = mElements[i] < aScalar;
+			return tmp;
+		}
+
+		template<class T2 = T, typename ENABLE = typename std::enable_if<std::is_arithmetic<T2>::value || std::is_same<T,T2>::value>::type>
+		vector<bool, S> operator>(const T2 aScalar) const throw() {
+			vector<bool, S> tmp;
+			for(uint32_t i = 0; i < S; ++i) tmp[i] = mElements[i] > aScalar;
+			return tmp;
+		}
+
+		template<class T2 = T, typename ENABLE = typename std::enable_if<std::is_arithmetic<T2>::value || std::is_same<T,T2>::value>::type>
+		vector<bool, S> operator<=(const T2 aScalar) const throw() {
+			vector<bool, S> tmp;
+			for(uint32_t i = 0; i < S; ++i) tmp[i] = mElements[i] <= aScalar;
+			return tmp;
+		}
+
+		template<class T2 = T, typename ENABLE = typename std::enable_if<std::is_arithmetic<T2>::value || std::is_same<T, T2>::value>::type>
+		vector<bool, S> operator>=(const T2 aScalar) const throw() {
+			vector<bool, S> tmp;
+			for (uint32_t i = 0; i < S; ++i) tmp[i] = mElements[i] >= aScalar;
+			return tmp;
+		}
+
 		#if SOLAIRE_CPP_VER >= SOLAIRE_CPP_14 || SOLAIRE_CPP_VER < SOLAIRE_CPP_11
 			SOLAIRE_CONSTEXPR_I14 T sum() const throw() {
 				T sum = static_cast<T>(0);
