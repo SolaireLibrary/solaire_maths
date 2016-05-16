@@ -45,9 +45,9 @@ namespace solaire {
 			}
         #endif
 	public:
-		SOLAIRE_CONSTEXPR_11 vector() throw() {
-
-		}
+		SOLAIRE_CONSTEXPR_11 vector() throw() :
+			mElements()
+		{}
 
         template<class T2, typename ENABLE = typename std::enable_if<std::is_arithmetic<T2>::value>::type>
 		SOLAIRE_CONSTEXPR_14 explicit vector(const T2 aScalar) throw() {
