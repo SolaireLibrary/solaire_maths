@@ -32,6 +32,10 @@ namespace solaire {
 			return (n * aMin) + (n * aMax);
 		}
 
+		inline double next_d(const double aMax) throw() {
+			return next_d(0.0, DBL_MAX);
+		}
+
 		inline double next_d() throw() {
 			return next_d(DBL_MIN, DBL_MAX);
 		}
@@ -83,12 +87,19 @@ namespace solaire {
 	static T generate_random();
 
 	template<class T>
+	static T generate_random(const T aMax);
+
+	template<class T>
 	static T generate_random(const T aMin, const T aMax);
 
 	#define SOLAIRE_GENERATE_RANDOM(T, POSTFIX)\
 		template<>\
 		static T generate_random<T>() {\
 			return get_randomiser().next_ ## POSTFIX();\
+		}\
+		template<>\
+		static T generate_random<T>(const T aMax) {\
+			return get_randomiser().next_ ## POSTFIX(aMax);\
 		}\
 		template<>\
 		static T generate_random<T>(const T aMin, const T aMax) {\
