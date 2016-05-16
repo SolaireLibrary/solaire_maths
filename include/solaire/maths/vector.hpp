@@ -104,7 +104,7 @@ namespace solaire {
 			SOLAIRE_CONSTEXPR_11 vector(const PARAMS... aParams) :
 				mElements{aParams...}
 			{
-				static_assert(sizeof...(PARAMS) == S, "solaire::vector : Parameter count must be equal to vector length");
+				static_assert(sizeof...(PARAMS) == 0 || sizeof...(PARAMS) == S, "solaire::vector : Parameter count must be equal to vector length");
 			}
 		#endif
 
