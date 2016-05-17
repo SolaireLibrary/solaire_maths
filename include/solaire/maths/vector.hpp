@@ -204,7 +204,7 @@ namespace solaire {
 			}
 
 			SOLAIRE_CONSTEXPR_I11 T dot_product(const vector<T, S>& aOther, const uint32_t aIndex = S - 1) const throw() {
-				return aIndex == 0 ? mElements[0] * aOther[0] : mElements[aIndex] * aOther[aIndex] + dotProduct(aOther, aIndex - 1);
+				return aIndex == 0 ? mElements[0] * aOther[0] : mElements[aIndex] * aOther[aIndex] + dot_product(aOther, aIndex - 1);
 			}
 		#endif
 
